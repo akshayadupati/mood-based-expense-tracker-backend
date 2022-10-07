@@ -1,0 +1,5 @@
+.DS_Store
+secrets.txt
+config.env
+
+node_modules
