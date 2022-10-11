@@ -3,13 +3,12 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config({ path: "./config.env" });
-
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-console.log("process.env.ATLAS_URI", process.env.ATLAS_URI);
+console.log("process.env.ATLAS_URI", process.env);
 const connection = mongoose
   .connect(process.env.ATLAS_URI, {
     useNewUrlParser: true
