@@ -9,8 +9,11 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+console.log("process.env.ATLAS_URI", process.env.ATLAS_URI);
 const connection = mongoose
-  .connect(process.env.ATLAS_URI, { useNewUrlParser: true })
+  .connect(process.env.ATLAS_URI, {
+    useNewUrlParser: true
+  })
   .then((db) => {
     console.log("Database connected!");
     return db;
