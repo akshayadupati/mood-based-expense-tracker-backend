@@ -13,7 +13,8 @@ const transaction_model = new Schema({
   expenseName: { type: String, default: "John Doe" },
   expenseType: { type: String, default: "Rental" },
   transactionMood: { type: String, default: "Excited" },
-  transactionAmount: { type: Number }
+  transactionAmount: { type: Number },
+  transactionDate: {type: Date, default: new Date()}
 });
 
 const Categories = mongoose.model("categories", categories_model);

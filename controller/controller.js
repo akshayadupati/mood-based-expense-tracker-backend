@@ -38,14 +38,20 @@ async function create_transaction(req, res) {
   if (!req.body) {
     return res.status(400).json("POST HTTP data not provided");
   }
-  let { expenseName, expenseType, transactionAmount, transactionMood } =
-    req.body;
+  let {
+    expenseName,
+    expenseType,
+    transactionAmount,
+    transactionMood,
+    transactionDate,
+  } = req.body;
 
   const create = await new model.Transaction({
     expenseName,
     expenseType,
     transactionMood,
     transactionAmount,
+    transactionDate,
   });
 
   create.save(function (err) {
@@ -105,6 +111,7 @@ async function get_labels(req, res) {
             expenseType: eachData.expenseType,
             transactionMood: eachData.transactionMood,
             transactionAmount: eachData.transactionAmount,
+            transactionDate: eachData.transactionDate,
             color: eachData.categories_info.color,
           }
         )
